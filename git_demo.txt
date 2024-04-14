@@ -22,4 +22,7 @@ They will wait there until they're called again.
 
 9. git stash pop: to call the changes on the backstage back
 
-9. git stash clear: to delete all the backstage changes
+10. git stash clear: to delete all the backstage changes
+
+11. git checkout -b (branch_name): to create and jump on the new branch
+
