@@ -1,1 +1,25 @@
-first modification in the git file
+BASICS OF GIT:
+
+1. to configure when you log in for the first time
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+2. git init: to initialise git bash in a folder
+
+3. git status: shows the status of files, whether they're added or modified or committed.
+
+4. git add: to add the files
+
+5. git commit -m"...": to commit the files with a message
+
+6. git log: to see at what time you add, removed which files
+
+7. git restore: to unstage the commit
+
+8. git stash: if you made a few changes and you don't want to add them now, and you also want to keep the git status clean, then you can send these changes on the backstage.
+They will wait there until they're called again.
+
+9. git stash pop: to call the changes on the backstage back
+
+9. git stash clear: to delete all the backstage changes
