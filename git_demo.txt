@@ -26,3 +26,7 @@ They will wait there until they're called again.
 
 11. git checkout -b (branch_name): to create and jump on the new branch
 
+12. I have made a new branch future_modifications, i will make changes here and then i will merge it with the master branch
+
+13. git checkout master -> git merge future_modifications -> git push origin master
+`
