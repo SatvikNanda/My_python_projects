@@ -1,8 +1,9 @@
-#goal: we will add ifelse conditions and dictionaries
-#changes: after add in the same line write what to add
-# after edit or complete in the same line give the index number you want to edit or complete
+# avoiding redundant code  by using custom functions.
 
-
+def get_todos():
+    with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
+        todos_local = file.readlines()
+    return todos_local
 
 while True:
     user_action = input("Type add, show, edit, complete, or exit: ")
@@ -11,8 +12,7 @@ while True:
     if user_action.startswith('add'):
         todo = user_action[4:]
 
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todos.append('\n' + todo)
 
@@ -25,8 +25,7 @@ while True:
             number = int(user_action[5:])
             number = number-1
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             new_todo = input("Enter a new to-do: ")
             todos[number] = new_todo + '\n'
@@ -41,8 +40,7 @@ while True:
 
     
     elif user_action.startswith('show'):
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         #todo_listcomp = [item.strip('\n') for item in todos] - this is an alternate method to do strip using list comprehension
 
@@ -57,8 +55,7 @@ while True:
 
             number = int(user_action[9:]) #when a to-do is completed we remove it from the list
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             index = number-1
             todo_to_remove = todos[index].strip('\n')

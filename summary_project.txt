@@ -9,4 +9,22 @@ A new variable called todos reads the file todos.txt from the data storage folde
 todo is appended in the variable todos. The file todos.txt is then rewritten.
 
 
-3. edit: 
+3. edit: the index of the to-do is mentioned for editing, the todos variable is again constructed.
+
+a variable called new todo is made to input a new todo in the form of a string.
+
+The new todo is replaced the position mentioned for the original todo. The file is then re-written
+
+
+4. show: todos variable is again introduced for reading the file
+
+for loop: enumerate(todos) to print both the index and the item. item is stripped off any extra newline character, 
+f-string is used for printing in the form of "1.item, 2.item etc"
+
+5. complete: number of the todo to be removed is mentioned, todos variable is again read.
+
+todo_to_remove variable gets stored the value of the todos(index).strip(\n) to get the element without any newline character
+
+then that index is popped from the todos list, then  the todo_removed is printed using f-string and todos is re-written
+
+
