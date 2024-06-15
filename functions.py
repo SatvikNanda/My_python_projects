@@ -4,7 +4,7 @@ def get_todos():
         todos_local = file.readlines()
     return todos_local
 
-#print(help(get_todos)) #printing the doc-string  fefff
+#print(help(get_todos)) #printing the doc-string  
 
 def write_todos(todos_arg):
     """Write the to-do items list in a text file"""

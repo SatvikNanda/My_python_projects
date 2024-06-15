@@ -1,6 +1,6 @@
 # adding time in our codee
 #created a seperate functions python file to store the functions and call them here
-import tabulate
+
 import time
 import functions
 
