@@ -1,9 +1,21 @@
-# avoiding redundant code  by using custom functions.
+# avoiding redundant code by using custom functions.
+
+#we made 2 custom functions: get_todos and write_todos
+
+#creating and printing a doc-string for get_todos function
 
 def get_todos():
+    """Read a text file and return the list of to-do items"""
     with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
         todos_local = file.readlines()
     return todos_local
+
+print(help(get_todos)) #printing the doc-string 
+
+def write_todos(todos_arg):
+    """Write the to-do items list in a text file"""
+    with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
+            file.writelines(todos_arg)
 
 while True:
     user_action = input("Type add, show, edit, complete, or exit: ")
@@ -16,8 +28,7 @@ while True:
 
         todos.append('\n' + todo)
 
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos(todos)
 
     
     elif user_action.startswith('edit'):
@@ -30,8 +41,7 @@ while True:
             new_todo = input("Enter a new to-do: ")
             todos[number] = new_todo + '\n'
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-                file.writelines(todos)
+            write_todos(todos)
         
         except ValueError:
             print("Please enter a valid command:")
@@ -64,8 +74,7 @@ while True:
             message = f"Todo {todo_to_remove} was completed and removed from the list."
             print(message)
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-                file.writelines(todos)
+            write_todos(todos)
         
         except IndexError:
             print("Enter a valid index")

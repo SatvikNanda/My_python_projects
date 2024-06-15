@@ -1,6 +1,12 @@
-#goal: we will add ifelse conditions and dictionaries
-#changes: after add in the same line write what to add
-# after edit or complete in the same line give the index number you want to edit or complete
+# adding time in our code
+#created a seperate functions python file to store the functions and call them here
+
+import time
+import functions
+
+now = time.strftime("%b %d, %Y  %H:%M:%S")
+
+print("The current time is:", now)
 
 
 
@@ -11,13 +17,11 @@ while True:
     if user_action.startswith('add'):
         todo = user_action[4:]
 
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = functions.get_todos()
 
         todos.append('\n' + todo)
 
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-            file.writelines(todos)
+        functions.write_todos(todos)
 
     
     elif user_action.startswith('edit'):
@@ -25,14 +29,12 @@ while True:
             number = int(user_action[5:])
             number = number-1
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = functions.get_todos()
 
             new_todo = input("Enter a new to-do: ")
             todos[number] = new_todo + '\n'
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-                file.writelines(todos)
+            functions.write_todos(todos)
         
         except ValueError:
             print("Please enter a valid command:")
@@ -41,8 +43,7 @@ while True:
 
     
     elif user_action.startswith('show'):
-        with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-            todos = file.readlines()
+        todos = functions.get_todos()
 
         #todo_listcomp = [item.strip('\n') for item in todos] - this is an alternate method to do strip using list comprehension
 
@@ -57,8 +58,7 @@ while True:
 
             number = int(user_action[9:]) #when a to-do is completed we remove it from the list
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:
-                todos = file.readlines()
+            todos = functions.get_todos()
 
             index = number-1
             todo_to_remove = todos[index].strip('\n')
@@ -67,8 +67,7 @@ while True:
             message = f"Todo {todo_to_remove} was completed and removed from the list."
             print(message)
 
-            with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'w') as file:
-                file.writelines(todos)
+            functions.write_todos(todos)
         
         except IndexError:
             print("Enter a valid index")
