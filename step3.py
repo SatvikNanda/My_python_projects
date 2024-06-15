@@ -3,7 +3,7 @@
 #we made 2 custom functions: get_todos and write_todos
 
 #creating and printing a doc-string for get_todos function
-
+import time 
 def get_todos():
     """Read a text file and return the list of to-do items"""
     with open(r'C:\Users\satvi\OneDrive\Desktop\python\udemy\project1_todo_list\data storage\todos.txt', 'r') as file:

@@ -1,6 +1,7 @@
 import functions
 import FreeSimpleGUI as fsg
 import time
+import tabnanny
 
 fsg.theme("TealMono")
 clock = fsg.Text('', key='clock')
